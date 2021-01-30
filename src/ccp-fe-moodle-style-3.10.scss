@@ -1,0 +1,505 @@
+//
+// ccp_fe_moodle_style_3.10, jake deery on behalf of city college plymouth, (c) 2020
+
+/*************************** Variables section. **************************/
+// Create variables to override the default value for variables used in the Moodle and Bootstrap SCSS files.
+
+//
+// generic - colours
+$inherit: inherit;
+$transparent: transparent;
+$white: #fff;
+$black: #000;
+
+//
+// bespoke - colours
+$ccpLight0: rgba(245, 245, 245, 1);
+$ccpLight1: rgba(235, 235, 235, 1);
+$ccpLight2: rgba(225, 225, 225, 1);
+$ccpDark0: rgba(35, 31, 32, 1);
+$ccpDark1: rgba(56, 53, 54, 1);
+$ccpDark2: rgba(78, 75, 76, 1);
+$ccpBlue0: rgba(43, 87, 154, 1);
+$ccpBlue1: rgba(127, 154, 194, 1);
+$ccpBlue2: rgba(149, 171, 204, 1);
+$ccpHue0: rgba(222, 139, 86, 1);
+$ccpHue1: rgba(228, 162, 119, 1);
+$ccpHue2: rgba(235, 184, 152, 1);
+$ccpGlass0: rgba(35,31,32,.32);
+$ccpGlass1: rgba(35,31,32,.48);
+$ccpGlass2: rgba(35,31,32,.64);
+
+/*************************** Import section  *****************************/
+// Import SASS files for this template to read prior to setting custom rules
+
+@import 'fontawesome';
+@import 'bootstrap';
+@import 'moodle';
+
+/*************************** Rules section *******************************/
+// Begin writing custom rules
+
+//
+// body rules
+body {
+	background-image: url('//ccp.aka-ish.ga/resources/OLE-Bg.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: $ccpDark0;
+}
+
+//
+// general other
+a {
+	color: $ccpBlue0;
+
+	@include hover-focus() {
+		color: $ccpDark0;
+	}
+
+	&:active,
+	&.active {
+		color: $ccpBlue2;
+	}
+}
+
+.aalink.focus, #page-footer a:not([class]).focus, .arrow_link.focus,
+a:not([class]).focus, .activityinstance > a.focus, .aalink:focus,
+#page-footer a:not([class]):focus,
+.arrow_link:focus, a:not([class]):focus,
+.activityinstance > a:focus {
+	outline: 0.2rem solid transparent;
+	color: $inherit;
+	background-color: $transparent;
+	box-shadow: none;
+}
+
+p, .p {
+	// n.a
+}
+
+h4, .h4 {
+	font-size: 1.4rem;
+}
+
+.text-muted {
+	color: $ccpDark2 !important
+}
+
+//
+// navbar
+.navbar {
+	background-color: $ccpDark0 !important;
+	color: $ccpLight0 !important;
+}
+
+a span.site-name { // hide site title
+	display: none !important;
+}
+
+.navbar-light .navbar-nav .nav-item,
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .nav-link.active { // navbar links
+	color: $ccpLight0;
+
+	@include hover-focus() {
+		color: $ccpHue1;
+	}
+
+	&:active,
+	&.active {
+		color: $ccpHue1;
+	}
+}
+
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active { // dropdown link
+	color: $ccpLight0;
+
+	@include hover-focus() {
+		color: $ccpHue1;
+	}
+
+	&:active,
+	&.active {
+		color: $ccpHue2;
+	}
+}
+
+.popover-region-header-container { // notifs header
+	background-color: $ccpDark0;
+	color: $ccpLight0;
+}
+
+.popover-region-content { // notifs content
+	color: $ccpDark0;
+}
+
+.popover-region-header-actions > * { // notifs icons
+	color: $ccpLight0;
+
+	@include hover-focus() {
+		color: $ccpBlue1;
+	}
+
+	&:active, &.active {
+		color: $ccpBlue2;
+	}
+}
+
+//
+// user picture
+.userpicture,
+.path-mod-assign [data-region='user-info'] .img-rounded {
+	@include border-radius(50%);
+	border: .125rem $ccpHue1 solid;
+}
+
+//
+// user dropdown
+.usermenu > .action-menu .dropdown-toggle {
+	color: $ccpLight0;
+
+	@include hover-focus() {
+		color: $ccpHue1;
+	}
+
+	&:active,
+	&.active {
+		color: $ccpHue2;
+	}
+}
+
+//
+// drawer (left)
+[data-region='drawer'] {
+	background-color: $ccpGlass2;
+	color: $ccpDark1;
+}
+
+.list-group-item-action { // action items
+	background-color: $ccpLight0;
+	color: $ccpDark0;
+
+	@include hover-focus() {
+		background-color: $ccpHue1;
+		color: $ccpDark0;
+	}
+
+	&:active, &.active {
+		background-color: $ccpHue0;
+		color: $ccpLight0;
+		border-color: $ccpGlass0;
+
+		@include hover-focus() {
+			background-color: $ccpHue1;
+			color: $ccpDark0;
+		}
+	}
+}
+
+#nav-drawer div.list-group-item { // group items
+	background-color: $ccpDark2;
+	color: $ccpLight0;
+	margin-top: 1.5rem;
+}
+
+//
+// page-header
+#page-header .card { // top card
+	background-color: $transparent;
+	border-color: $transparent;
+}
+
+.page-header-headings h1 { // title text
+	color: $ccpLight0;
+	text-shadow: 0 .0625rem .0625rem rgba(35, 31, 32, .33);
+}
+
+//
+// breadcrumbs
+#page-navbar {
+	padding: .33rem 0;
+}
+
+.breadcrumb { // main breadcrumbs
+	color: $ccpDark0;
+	background-color: $white;
+	@include border-radius(0);
+	padding: .66rem 1rem;
+}
+
+//
+// menus
+.context-header-settings-menu .action-menu .menubar .dropdown a.dropdown-toggle { // header cog
+	color: $ccpLight0;
+
+	@include hover-focus() {
+		color: $ccpHue0;
+	}
+
+	&:active, &.active {
+		color: $ccpHue1;
+	}
+}
+
+#page-header .card .header-button-group a { // header buttons
+	color: $ccpLight0;
+
+	@include hover-focus() {
+		color: $ccpBlue1;
+	}
+
+	&:active, &.active {
+		color: $ccpBlue2;
+	}
+}
+
+.dropdown-menu,
+div.dropdown-menu { // menu css
+	background-color: $ccpLight0;
+	color: $ccpDark0;
+}
+
+.dropdown-item,
+div.dropdown-item {
+	color: $ccpDark0 !important;
+	
+	@include hover-focus() {
+		background-color: $ccpHue1;
+	}
+
+	&:active, &.active {
+		background-color: $ccpHue0;
+		color: $ccpLight0 !important;
+	}
+
+	a {
+		color: $ccpDark0 !important;
+
+		@include hover-focus() {
+			color: $ccpDark0 !important;
+			text-decoration: none;
+		}
+	
+		&:active, &.active {
+			color: $ccpDark0 !important;
+		}
+	}
+}
+
+//
+//
+// content area
+#region-main {
+	@include border-radius(0);
+}
+
+//
+// alerts & bobletts
+.close {
+	color: $ccpLight0;
+
+	@include hover-focus() {
+		color: $ccpLight0;
+	}
+
+	&:active, &.active {
+		color: $ccpLight0;
+	}
+}
+
+.text-info {
+	color: $ccpBlue1 !important;
+}
+
+.alert-primary {
+	background-color: rgba(92,138,184,1);
+	color: $ccpLight0;
+	border-color: rgba(127,163,199,1);
+}
+
+.alert-success {
+	background-color: rgba(92,184,92,1);
+	color: $ccpLight0;
+	border-color: rgba(127,199,127,1);
+}
+
+.alert-danger {
+	background-color: rgba(217,83,79,1);
+	color: $ccpLight0;
+	border-color: rgba(226,125,121,1);
+}
+
+//
+// buttons
+.btn {
+	color: $ccpBlue0
+}
+
+.btn-primary,
+.btn-outline-primary { // main
+	background-color: $ccpHue0 !important;
+	color: $ccpLight0 !important;
+	border-color: $ccpDark0 !important;
+
+	@include hover-focus() {
+		background-color: $ccpLight0 !important;
+		color: $ccpDark0 !important;
+	}
+
+	&:active,
+	&.active {
+		background-color: $ccpHue1 !important;
+		color: $ccpDark0 !important;
+	}
+
+	&:disabled,
+	&.disabled {
+		background-color: $ccpLight1 !important;
+		color: $ccpDark0 !important;
+	}
+}
+
+.btn-secondary,
+.btn-outline-secondary { // main
+	background-color: $ccpLight0 !important;
+	color: $ccpDark0 !important;
+
+	@include hover-focus() {
+		background-color: $ccpDark0 !important;
+		color: $ccpLight0 !important;
+	}
+
+	&:active,
+	&.active {
+		background-color: $ccpDark0 !important;
+		color: $ccpLight0 !important;
+	}
+
+	&:disabled,
+	&.disabled {
+		background-color: $ccpLight1 !important;
+		color: $ccpDark2 !important;
+	}
+}
+
+//
+// nav tabs
+.nav-tabs .nav-link { // non-active tab & all-tabs
+	@include border-radius(0);
+	@include hover-focus() {
+		background-color: $ccpBlue1;
+		color: $ccpDark0;
+	}
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link { // active tab
+	&:active, &.active {
+		color: $ccpDark0;
+	}
+}
+
+//
+// file manager
+.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd {
+	background-color: $ccpDark0;
+	color: $ccpLight0;
+
+	.yui3-button {
+		color: $ccpLight1;
+	}
+}
+
+//
+// nav pills
+.nav-pills .nav-link {
+	@include border-radius(0);
+
+	@include hover-focus() {
+		background-color: $ccpHue1;
+		color: $ccpDark0;
+	}
+
+	&:active, &.active {
+		background-color: $ccpHue0;
+		color: $ccpLight0;
+
+		@include hover-focus() {
+			background-color: $ccpHue1;
+			color: $ccpDark0;
+		}
+	}
+}
+
+//
+// footer
+#page-footer {
+	background-color: $ccpGlass1 !important;
+	color: $ccpLight0 !important;
+
+	a {
+		@include hover-focus() {
+			text-decoration: none;
+		}
+	}
+
+	.container {
+		max-width: none;
+		width: 100%;
+		padding-right: 15px;
+		padding-left: 15px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+// grading page
+#page-mod-assign-grader {
+	background-image: none;
+	background-color: $white;
+}
+
+//
+// logon page
+h2.card-header.text-center {
+	background-color: $ccpDark0;
+}
+
+// 
+// course category listings
+#course-category-listings .listitem {
+	@include hover-focus() {
+		background-color: $ccpLight0;
+	}
+}
+
+//
+// misc
+.alert {
+	@include border-radius(0);
+}
+
+.card {
+	@include border-radius(0);
+}
+
+.btn {
+	@include border-radius(0);
+}
+
+.form-control {
+	@include border-radius(0);
+}
+
+.custom-select {
+	@include border-radius(0);
+}
+
+.sitelink {
+	display: none;
+}
