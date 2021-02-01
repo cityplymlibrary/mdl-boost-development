@@ -13,21 +13,21 @@ $black: #000;
 
 //
 // bespoke - colours
-$ccpLight0: rgba(245,245,245,1);
-$ccpLight1: rgba(235,235,235,1);
-$ccpLight2: rgba(225,225,225,1);
-$ccpDark0: rgba(35,31,32,1);
-$ccpDark1: rgba(56,53,54,1);
-$ccpDark2: rgba(78,75,76,1);
+$ccpLight0: rgba(245, 245, 245, 1);
+$ccpLight1: rgba(235, 235, 235, 1);
+$ccpLight2: rgba(225, 225, 225, 1);
+$ccpDark0: rgba(35, 31, 32, 1);
+$ccpDark1: rgba(56, 53, 54, 1);
+$ccpDark2: rgba(78, 75, 76, 1);
 $ccpBlue0: rgba(43, 87, 154, 1);
 $ccpBlue1: rgba(127, 154, 194, 1);
 $ccpBlue2: rgba(149, 171, 204, 1);
 $ccpHue0: rgba(139, 86, 222, 1);
 $ccpHue1: rgba(162, 119, 228, 1);
 $ccpHue2: rgba(184, 152, 235, 1);
-$ccpGlass0: rgba(35,31,32,.32);
-$ccpGlass1: rgba(35,31,32,.48);
-$ccpGlass2: rgba(35,31,32,.64);
+$ccpGlass0: rgba(35, 31, 32, .32);
+$ccpGlass1: rgba(35, 31, 32, .48);
+$ccpGlass2: rgba(35, 31, 32, .64);
 
 /*************************** Import section  *****************************/
 // Import SASS files for this template to read prior to setting custom rules
@@ -42,7 +42,7 @@ $ccpGlass2: rgba(35,31,32,.64);
 //
 // body rules
 body {
-	//background-image: url('#define_in_mdl_settings');
+	//background-image: url('define_in_mdl_settings');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -85,6 +85,10 @@ h4, .h4 {
 
 .text-muted {
 	color: $ccpDark2 !important
+}
+
+.img {
+	max-width: 100%
 }
 
 //
@@ -138,6 +142,7 @@ a span.site-name { // hide site title
 	color: $ccpDark0;
 }
 
+.newmessage-link > *, // newmessage link
 .popover-region-header-actions > * { // notifs icons
 	color: $ccpLight0;
 
@@ -160,7 +165,7 @@ a span.site-name { // hide site title
 
 //
 // user dropdown
-.usermenu > .action-menu .dropdown-toggle { {
+.usermenu > .action-menu .dropdown-toggle {
 	color: $ccpLight0;
 
 	@include hover-focus() {
@@ -242,7 +247,6 @@ a span.site-name { // hide site title
 
 //
 // menus
-.context-header-settings-menu .action-menu .menubar .dropdown .dropdown-toggle i.icon,
 .context-header-settings-menu .action-menu .menubar .dropdown a.dropdown-toggle { // header cog
 	color: $ccpLight0;
 
