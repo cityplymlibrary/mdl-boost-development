@@ -1,2 +1,2 @@
-# moodle-development
-CCP Moodle Development Repo
+# moodle-boost-development
+CCP Moodle Boost Development Repo
