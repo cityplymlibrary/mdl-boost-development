@@ -22,12 +22,12 @@ $ccpDark2: rgba(78, 75, 76, 1);
 $ccpBlue0: rgba(43, 87, 154, 1);
 $ccpBlue1: rgba(127, 154, 194, 1);
 $ccpBlue2: rgba(149, 171, 204, 1);
-$ccpHue0: rgba(139, 86, 222, 1);
-$ccpHue1: rgba(162, 119, 228, 1);
-$ccpHue2: rgba(184, 152, 235, 1);
-$ccpGlass0: rgba(35,31,32,.32);
-$ccpGlass1: rgba(35,31,32,.48);
-$ccpGlass2: rgba(35,31,32,.64);
+$ccpHue0: rgba(171, 132, 230, 1);
+$ccpHue1: rgba(189, 159, 236, 1);
+$ccpHue2: rgba(208, 186, 241, 1);
+$ccpGlass0: rgba(35, 31, 32, .32);
+$ccpGlass1: rgba(35, 31, 32, .48);
+$ccpGlass2: rgba(35, 31, 32, .64);
 
 /*************************** Import section  *****************************/
 // Import SASS files for this template to read prior to setting custom rules
@@ -65,14 +65,29 @@ a {
 }
 
 .aalink.focus, #page-footer a:not([class]).focus, .arrow_link.focus,
-a:not([class]).focus, .activityinstance > a.focus, .aalink:focus,
-#page-footer a:not([class]):focus,
-.arrow_link:focus, a:not([class]):focus,
-.activityinstance > a:focus {
-	outline: 0.2rem solid transparent;
-	color: $inherit;
-	background-color: $transparent;
-	box-shadow: none;
+a:not([class]).focus, .activityinstance>a.focus, .aalink:focus,
+#page-footer a:not([class]):focus, .arrow_link:focus, a:not([class]):focus, .activityinstance>a:focus {
+	outline: .2rem solid transparent;
+	color: #212529;
+	background-color: #fff;
+	text-decoration: none;
+	box-shadow: 0 -0.2rem white, 0 0.2rem #343a40;
+}
+
+.aabtn.focus, .btn-link.focus,
+.nav-link.focus, .atto_link_button.focus, [role="button"].focus,
+.list-group-item-action.focus, input[type="checkbox"].focus, input[type="radio"].focus,
+input[type="file"].focus, input[type="image"].focus, .sr-only-focusable.focus,
+a.dropdown-toggle.focus, .modal-dialog[tabindex="0"].focus, .moodle-dialogue-base .closebutton.focus,
+button.close.focus, .form-autocomplete-selection.focus, .aabtn:focus,
+.btn-link:focus, .nav-link:focus, .atto_link_button:focus,
+[role="button"]:focus, .list-group-item-action:focus, input[type="checkbox"]:focus,
+input[type="radio"]:focus, input[type="file"]:focus, input[type="image"]:focus,
+.sr-only-focusable:focus, a.dropdown-toggle:focus, .modal-dialog[tabindex="0"]:focus,
+.moodle-dialogue-base .closebutton:focus, button.close:focus, .form-autocomplete-selection:focus {
+	outline: 0;
+	-webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
 }
 
 p, .p {
@@ -87,6 +102,11 @@ h4, .h4 {
 	color: $ccpDark2 !important
 }
 
+img, .img {
+	max-width: 100%;
+	height: auto
+}
+
 //
 // navbar
 .navbar {
@@ -96,6 +116,10 @@ h4, .h4 {
 
 a span.site-name { // hide site title
 	display: none !important;
+}
+
+.navbar-brand { // unpad logo - include spacing within image file
+	margin-right: 0;
 }
 
 .navbar-light .navbar-nav .nav-item,
@@ -138,6 +162,7 @@ a span.site-name { // hide site title
 	color: $ccpDark0;
 }
 
+.newmessage-link > *, // newmessage link
 .popover-region-header-actions > * { // notifs icons
 	color: $ccpLight0;
 
@@ -191,7 +216,7 @@ a span.site-name { // hide site title
 
 	&:active, &.active {
 		background-color: $ccpHue0;
-		color: $ccpLight0;
+		color: $ccpDark0;
 		border-color: $ccpGlass0;
 
 		@include hover-focus() {
@@ -199,6 +224,14 @@ a span.site-name { // hide site title
 			color: $ccpDark0;
 		}
 	}
+}
+
+.list-group-item:first-child,
+.list-group-item:last-child {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
 #nav-drawer div.list-group-item { // group items
@@ -275,7 +308,7 @@ div.dropdown-item {
 
 	&:active, &.active {
 		background-color: $ccpHue0;
-		color: $ccpLight0 !important;
+		color: $ccpDark0 !important;
 	}
 
 	a {
@@ -344,7 +377,7 @@ div.dropdown-item {
 .btn-primary,
 .btn-outline-primary { // main
 	background-color: $ccpHue0 !important;
-	color: $ccpLight0 !important;
+	color: $ccpDark0 !important;
 	border-color: $ccpDark0 !important;
 
 	@include hover-focus() {
@@ -428,7 +461,7 @@ div.dropdown-item {
 
 	&:active, &.active {
 		background-color: $ccpHue0;
-		color: $ccpLight0;
+		color: $ccpDark0;
 
 		@include hover-focus() {
 			background-color: $ccpHue1;
@@ -469,6 +502,22 @@ div.dropdown-item {
 // logon page
 h2.card-header.text-center {
 	background-color: $ccpDark0;
+}
+
+//
+// moodle modal
+.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd,
+.moodle-dialogue-base .moodle-dialogue-wrap.moodle-dialogue-content {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+//
+// moodle modal close button
+.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd .yui3-button {
+	background-image: none
 }
 
 // 
