@@ -25,9 +25,12 @@ $ccpBlue2: rgba(149, 171, 204, 1);
 $ccpHue0: rgba(230, 171, 132, 1);
 $ccpHue1: rgba(236, 189, 159, 1);
 $ccpHue2: rgba(241, 208, 186, 1);
-$ccpGlass0: rgba(35, 31, 32, .32);
-$ccpGlass1: rgba(35, 31, 32, .48);
-$ccpGlass2: rgba(35, 31, 32, .64);
+$ccpGlassDark0: rgba(35, 31, 32, .32);
+$ccpGlassDark1: rgba(35, 31, 32, .48);
+$ccpGlassDark2: rgba(35, 31, 32, .64);
+$ccpGlassLight0: rgba(218, 219, 222, .32);
+$ccpGlassLight1: rgba(218, 219, 222, .48);
+$ccpGlassLight2: rgba(218, 219, 222, .64);
 
 /*************************** Import section  *****************************/
 // Import SASS files for this template to read prior to setting custom rules
@@ -201,7 +204,7 @@ a span.site-name { // hide site title
 //
 // drawer (left)
 [data-region='drawer'] {
-	background-color: $ccpGlass2;
+	background-color: $ccpGlassLight2;
 	color: $ccpDark1;
 }
 
@@ -217,7 +220,7 @@ a span.site-name { // hide site title
 	&:active, &.active {
 		background-color: $ccpHue0;
 		color: $ccpDark0;
-		border-color: $ccpGlass0;
+		border-color: $ccpGlassDark0;
 
 		@include hover-focus() {
 			background-color: $ccpHue1;
@@ -473,12 +476,19 @@ div.dropdown-item {
 //
 // footer
 #page-footer {
-	background-color: $ccpGlass1 !important;
-	color: $ccpLight0 !important;
+	background-color: $ccpGlassLight1 !important;
+	color: $ccpDark0 !important;
 
 	a {
+		color: $ccpDark0 !important;
+		
 		@include hover-focus() {
-			text-decoration: none;
+			color: $ccpDark2 !impotant;
+			text-decoration: none
+		}
+		
+		.icon {
+			color: $ccpDark0 !important
 		}
 	}
 
